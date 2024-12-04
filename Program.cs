@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 var conString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseMySql(ServerVersion.AutoDetect(conString))
+    options => options.UseMySql(conString, ServerVersion.AutoDetect(conString))
     );
 
 var app = builder.Build();
